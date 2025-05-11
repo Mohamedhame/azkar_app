@@ -1,0 +1,55 @@
+import 'package:azkar_app/controller/theme_controller.dart';
+import 'package:azkar_app/utilities/routes.dart';
+import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/stylish_card.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class Quran extends StatelessWidget {
+  const Quran({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeController>(context);
+    return Scaffold(
+      backgroundColor: theme.primaryColor,
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 70),
+                    const StylishCard(
+                      title:
+                          'عن أبي أُمَامَةَ البَاهِلِي رضي الله عنه قال: سمعتُ رسولَ اللهِ صلَّى اللهُ عليهِ وسلَّمَ يقول: ',
+                      body:
+                          '"اقْرَؤُوا القُرآنَ، فإنَّهُ يأتي يومَ القيامةِ شفيعًا لأصحابِه"... رواه مسلم.',
+                      footer: 'فإن غلبتَ على قراءته، فلا تُغلب على سماعه.',
+                    ),
+                    const SizedBox(height: 70),
+                    CustomButton(
+                      textButton: "تلاوة",
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.readQuran);
+                      },
+                    ),
+                    CustomButton(
+                      textButton: "سماع",
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.listOfQurra);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
