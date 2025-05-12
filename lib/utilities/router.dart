@@ -1,5 +1,8 @@
 import 'package:azkar_app/controller/list_of_quraa_ctrl.dart';
 import 'package:azkar_app/utilities/routes.dart';
+import 'package:azkar_app/view/page/counter.dart';
+import 'package:azkar_app/view/page/hadith/list_of_books.dart';
+import 'package:azkar_app/view/page/hadith/show_azkar.dart';
 import 'package:azkar_app/view/page/home_page.dart';
 import 'package:azkar_app/view/page/quran/list_of_quraa.dart';
 import 'package:azkar_app/view/page/quran/quran.dart';
@@ -30,11 +33,21 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         settings: settings,
       );
     case AppRoutes.sira:
+      return CupertinoPageRoute(builder: (_) => Sira(), settings: settings);
+      
+    case AppRoutes.listOfBooks:
       return CupertinoPageRoute(
-        builder:
-            (_) => Sira(),
+        builder: (_) => ListOfBooks(),
         settings: settings,
       );
+    case AppRoutes.showAzkar:
+      return CupertinoPageRoute(
+        builder: (_) => ShowAzkar(),
+        settings: settings,
+      );
+
+    case AppRoutes.counter:
+      return CupertinoPageRoute(builder: (_) => Counter(), settings: settings);
     default:
       return CupertinoPageRoute(
         builder: (_) => const HomePage(),

@@ -40,4 +40,43 @@ class ThemeController extends ChangeNotifier {
     }
     isLight = theme;
   }
+
+    //========================
+  double _fontSize = 16.0;
+
+  double get fontSize => _fontSize;
+
+  Future<void> loadFontSize() async {
+    _fontSize = await Shared.getFontSizeHadith();
+    notifyListeners();
+  }
+
+  Future<void> setFontSize(double f) async {
+    _fontSize = f;
+    await Shared.setFontSizeHadith(f);
+    notifyListeners();
+  }
+
+  decreaseFontSize() {
+    if (_fontSize > 13) {
+      _fontSize--;
+      Shared.setFontSizeHadith(_fontSize);
+      notifyListeners();
+    }
+  }
+
+  increaseFontSize() {
+    if (_fontSize < 69) {
+      _fontSize++;
+      Shared.setFontSizeHadith(_fontSize);
+      notifyListeners();
+    }
+  }
+
+  onChangedFontSize(double value) {
+    _fontSize = value;
+    Shared.setFontSizeHadith(_fontSize);
+    notifyListeners();
+  }
+
 }

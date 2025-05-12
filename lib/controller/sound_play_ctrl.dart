@@ -4,10 +4,14 @@ import 'package:azkar_app/functions/check_internet.dart';
 import 'package:azkar_app/service/file_storage.dart';
 import 'package:azkar_app/service/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
 class SoundPlayCtrl extends ChangeNotifier {
+  SoundPlayCtrl() {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
   final playr = AudioPlayer();
   Duration position = Duration.zero;
   Duration duration = Duration.zero;
@@ -223,6 +227,12 @@ class SoundPlayCtrl extends ChangeNotifier {
   }
 
   void setSpeed(double nweSpeed) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     speed = nweSpeed;
     playr.setSpeed(speed);
     notifyListeners();

@@ -10,21 +10,23 @@ class BottomSheetCustomization extends StatelessWidget {
     this.onChanged,
     this.pressAdd,
     this.pressRemove,
-    required this.data,
+    this.data,
     this.max = 1.0,
     this.min = 0.0,
     this.onPressedOnItem,
+    this.widget,
   });
 
   final ThemeController theme;
   final double value;
-  final List data;
+  final List? data;
   final void Function(double)? onChanged;
   final void Function()? pressAdd;
   final void Function()? pressRemove;
   final double max;
   final double min;
   final void Function(int)? onPressedOnItem;
+  final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
@@ -74,29 +76,32 @@ class BottomSheetCustomization extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  ...List.generate(data.length, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: theme.fontColor,
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () {
-                              onPressedOnItem?.call(index);
-                            },
-                            child: Text(
-                              data[index].toString(),
-                              style: TextStyle(color: theme.primaryColor),
+                  if (data != null)
+                    ...List.generate(data!.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: theme.fontColor,
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              onTap: () {
+                                onPressedOnItem?.call(index);
+                              },
+                              child: Text(
+                                data![index].toString(),
+                                style: TextStyle(color: theme.primaryColor),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+
+                  if (widget != null) widget!,
                 ],
               ),
             ),

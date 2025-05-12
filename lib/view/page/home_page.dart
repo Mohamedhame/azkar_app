@@ -4,7 +4,6 @@ import 'package:azkar_app/view/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -52,6 +51,25 @@ class HomePage extends StatelessWidget {
                       textButton: "السيرة النبوية",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.sira);
+                      },
+                    ),
+                    CustomButton(
+                      textButton: "الحديث النبوي الشريف",
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.listOfBooks);
+                      },
+                    ),
+
+                    CustomButton(
+                      textButton: "حصن المسلم",
+                      onTap: () async {
+                        Navigator.of(context).pushNamed(AppRoutes.showAzkar);
+                      },
+                    ),
+                    CustomButton(
+                      textButton: "السبحة",
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.counter);
                       },
                     ),
                   ],

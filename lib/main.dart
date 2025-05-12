@@ -1,5 +1,7 @@
+import 'package:azkar_app/controller/counter_ctrl.dart';
 import 'package:azkar_app/controller/sound_play_ctrl.dart';
 import 'package:azkar_app/controller/theme_controller.dart';
+import 'package:azkar_app/functions/start_program.dart';
 import 'package:azkar_app/utilities/router.dart';
 import 'package:azkar_app/utilities/routes.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await startProgram();
   await JustAudioBackground.init(
     androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
     androidNotificationChannelName: 'Audio playback',
@@ -26,6 +29,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeController()),
         ChangeNotifierProvider(create: (_) => SoundPlayCtrl()),
+        ChangeNotifierProvider(create: (_) => CounterCtrl()),
       ],
       child: MaterialApp(
         title: 'Azkar App',

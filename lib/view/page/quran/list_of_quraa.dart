@@ -24,7 +24,6 @@ class ListOfQuraa extends StatelessWidget {
       body: Column(
         children: [
           CustomTextFormField(
-            theme: theme,
             label: "اسم القارئ",
             onChanged: model.runFilterData,
           ),
