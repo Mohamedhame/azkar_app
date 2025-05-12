@@ -1,6 +1,5 @@
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/widget/audio/custom_icon.dart';
-import 'package:azkar_app/view/widget/audio/custom_icon_close_sheet_bottom.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetCustomization extends StatelessWidget {
@@ -34,7 +33,16 @@ class BottomSheetCustomization extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CustomIconCloseSheetBottom(theme: theme),
+          Align(
+            alignment: Alignment.topLeft,
+            child: CustomIcon(
+              theme: theme,
+              icon: Icons.close,
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
