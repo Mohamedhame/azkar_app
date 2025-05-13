@@ -3,7 +3,7 @@ import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/widget/calculate_of_progress.dart';
 import 'package:azkar_app/view/widget/counter/cusom_field_input_in_counter.dart';
 import 'package:azkar_app/view/widget/custom_app_bar.dart';
-import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:azkar_app/view/widget/custom_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -38,8 +38,8 @@ class Counter extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          CustomButton(
-            textButton: "إضافة ذكر",
+          CustomDesignBuuton(
+            titleItem: "إضافة ذكر",
             onTap: () {
               final model = Provider.of<CounterCtrl>(context, listen: false);
               showDialog(
@@ -55,8 +55,8 @@ class Counter extends StatelessWidget {
                           controller: model.addZekr,
                         ),
                         const SizedBox(height: 10),
-                        CustomButton(
-                          textButton: "إضافة",
+                        CustomDesignBuuton(
+                          titleItem: "إضافة",
 
                           onTap: () {
                             model.insertIntoAzkerListInShared();

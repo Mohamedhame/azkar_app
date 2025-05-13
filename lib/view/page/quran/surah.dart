@@ -3,8 +3,8 @@ import 'package:azkar_app/controller/surah_ctrl.dart';
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/page/sound_play.dart';
 import 'package:azkar_app/view/widget/custom_app_bar.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:azkar_app/view/widget/quran_and_sira/custom_download_or_check_icon_and_paly_icon.dart';
-import 'package:azkar_app/view/widget/quran_and_sira/custom_item_in_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,8 +25,7 @@ class Surah extends StatelessWidget {
               : ListView.builder(
                 itemCount: model.surahs.length,
                 itemBuilder: (context, index) {
-                  return CustomItemInListView(
-                    theme: theme,
+                  return CustomDesignBuuton(
                     titleItem: model.surahs[index]['name'],
                     widget: CustomDownloadOrCheckIconAndPalyIcon(
                       theme: theme,

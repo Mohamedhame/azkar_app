@@ -2,7 +2,7 @@ import 'package:azkar_app/controller/show_hadith_ctrl.dart';
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/page/hadith/index_page_of_hadith_page.dart';
 import 'package:azkar_app/view/widget/custom_app_bar.dart';
-import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:azkar_app/view/widget/hadith/cusom_list_view_of_hadith_data.dart';
 import 'package:azkar_app/view/widget/hadith/custom_drawer.dart';
 import 'package:azkar_app/view/widget/hadith/setting_font_size.dart';
@@ -49,8 +49,8 @@ class ShowHadith extends StatelessWidget {
                     children: [
                       // title of
                       if (!model.isNaway)
-                        CustomButton(
-                          textButton: model.hadithBooks[index]['title'],
+                        CustomDesignBuuton(
+                          titleItem: model.hadithBooks[index]['title'],
                           backgroundColor: theme.fontColor,
                           foregroundColor: theme.primaryColor,
                         ),

@@ -1,6 +1,6 @@
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/utilities/routes.dart';
-import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:azkar_app/view/widget/stylish_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,14 +31,14 @@ class Quran extends StatelessWidget {
                       footer: 'فإن غلبتَ على قراءته، فلا تُغلب على سماعه.',
                     ),
                     const SizedBox(height: 70),
-                    CustomButton(
-                      textButton: "تلاوة",
+                    CustomDesignBuuton(
+                      titleItem: "تلاوة",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.readQuran);
                       },
                     ),
-                    CustomButton(
-                      textButton: "سماع",
+                    CustomDesignBuuton(
+                      titleItem: "سماع",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.listOfQurra);
                       },

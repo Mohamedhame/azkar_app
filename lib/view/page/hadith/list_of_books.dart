@@ -1,7 +1,7 @@
 import 'package:azkar_app/controller/show_hadith_ctrl.dart';
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/page/hadith/show_hadith.dart';
-import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:azkar_app/view/widget/stylish_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +27,8 @@ class ListOfBooks extends StatelessWidget {
                   'العلم يرفع بيتاً لا عماد له، والجهل يهدم بيت العز والشرف',
             ),
 
-            CustomButton(
-              textButton: "صحيح البخاري",
+            CustomDesignBuuton(
+              titleItem: "صحيح البخاري",
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -42,8 +42,8 @@ class ListOfBooks extends StatelessWidget {
                 );
               },
             ),
-            CustomButton(
-              textButton: "صحيح مسلم",
+            CustomDesignBuuton(
+              titleItem: "صحيح مسلم",
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -58,8 +58,8 @@ class ListOfBooks extends StatelessWidget {
               },
             ),
 
-            CustomButton(
-              textButton: "الاربعين النووية",
+            CustomDesignBuuton(
+              titleItem: "الاربعين النووية",
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(

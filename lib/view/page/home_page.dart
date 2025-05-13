@@ -1,6 +1,6 @@
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/utilities/routes.dart';
-import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,33 +41,33 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 70),
 
                     const SizedBox(height: 70),
-                    CustomButton(
-                      textButton: "القران الكريم",
+                    CustomDesignBuuton(
+                      titleItem: "القران الكريم",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.quran);
                       },
                     ),
-                    CustomButton(
-                      textButton: "السيرة النبوية",
+                    CustomDesignBuuton(
+                      titleItem: "السيرة النبوية",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.sira);
                       },
                     ),
-                    CustomButton(
-                      textButton: "الحديث النبوي الشريف",
+                    CustomDesignBuuton(
+                      titleItem: "الحديث النبوي الشريف",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.listOfBooks);
                       },
                     ),
 
-                    CustomButton(
-                      textButton: "حصن المسلم",
+                    CustomDesignBuuton(
+                      titleItem: "حصن المسلم",
                       onTap: () async {
                         Navigator.of(context).pushNamed(AppRoutes.showAzkar);
                       },
                     ),
-                    CustomButton(
-                      textButton: "السبحة",
+                    CustomDesignBuuton(
+                      titleItem: "السبحة",
                       onTap: () {
                         Navigator.of(context).pushNamed(AppRoutes.counter);
                       },

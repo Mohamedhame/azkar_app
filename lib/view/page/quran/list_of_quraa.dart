@@ -4,8 +4,8 @@ import 'package:azkar_app/controller/surah_ctrl.dart';
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/page/quran/surah.dart';
 import 'package:azkar_app/view/widget/custom_app_bar.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:azkar_app/view/widget/custom_text_form_filed.dart';
-import 'package:azkar_app/view/widget/quran_and_sira/custom_item_in_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,8 +33,7 @@ class ListOfQuraa extends StatelessWidget {
               itemBuilder: (context, index) {
                 String shikhName = data[index]['name'];
                 String url = data[index]['url'];
-                return CustomItemInListView(
-                  theme: theme,
+                return CustomDesignBuuton(
                   titleItem: shikhName,
                   onTap: () {
                     Navigator.of(context).push(

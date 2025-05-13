@@ -3,7 +3,7 @@ import 'package:azkar_app/controller/show_zekr_based_on_indexing_ctrl.dart';
 import 'package:azkar_app/controller/theme_controller.dart';
 import 'package:azkar_app/view/page/hadith/show_zekr_based_on_indexing.dart';
 import 'package:azkar_app/view/widget/custom_app_bar.dart';
-import 'package:azkar_app/view/widget/custom_button.dart';
+import 'package:azkar_app/view/widget/custom_design_buuton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,8 +28,8 @@ class ShowAzkar extends StatelessWidget {
               itemCount: model.titleOfAzkar.length,
               itemBuilder: (context, index) {
                 String title = model.titleOfAzkar[index]['category'];
-                return CustomButton(
-                  textButton: title,
+                return CustomDesignBuuton(
+                  titleItem: title,
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
