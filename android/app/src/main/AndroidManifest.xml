@@ -94,6 +94,11 @@
                         android:value="To demonstrate how to use foreground services to show notifications"/>
                 </service>
         <!--//====================End Flutter Local Notification ======================= //  -->
+        <service
+            android:name="be.tramckrijte.workmanager.BackgroundWorker"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+        <!-- ==================================================================================== -->
              
         <meta-data
             android:name="flutterEmbedding"
