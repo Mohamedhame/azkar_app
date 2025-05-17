@@ -14,7 +14,8 @@ class ListOfBooks extends StatelessWidget {
     final theme = Provider.of<ThemeController>(context);
     return Scaffold(
       backgroundColor: theme.primaryColor,
-      body: SafeArea(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Column(
           children: [
             const SizedBox(height: 70),
@@ -29,6 +30,7 @@ class ListOfBooks extends StatelessWidget {
 
             CustomDesignBuuton(
               titleItem: "صحيح البخاري",
+              icon: Icons.menu_book_rounded,
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -44,6 +46,7 @@ class ListOfBooks extends StatelessWidget {
             ),
             CustomDesignBuuton(
               titleItem: "صحيح مسلم",
+              icon: Icons.menu_book_rounded,
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -60,6 +63,7 @@ class ListOfBooks extends StatelessWidget {
 
             CustomDesignBuuton(
               titleItem: "الاربعين النووية",
+              icon: Icons.menu_book_rounded,
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(

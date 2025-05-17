@@ -11,39 +11,65 @@ class Quran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeController>(context);
+    // final media = MediaQuery.of(context);
+
     return Scaffold(
       backgroundColor: theme.primaryColor,
       body: SafeArea(
-        child: SizedBox(
-          width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // المساحة العلوية
+              Text(
+                "القرآن الكريم",
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  color: theme.fontColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Amiri",
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // محتوى قابل للتمرير
               Expanded(
-                child: Column(
-                  children: [
-                    const SizedBox(height: 70),
-                    const StylishCard(
-                      title:
-                          'عن أبي أُمَامَةَ البَاهِلِي رضي الله عنه قال: سمعتُ رسولَ اللهِ صلَّى اللهُ عليهِ وسلَّمَ يقول: ',
-                      body:
-                          '"اقْرَؤُوا القُرآنَ، فإنَّهُ يأتي يومَ القيامةِ شفيعًا لأصحابِه"... رواه مسلم.',
-                      footer: 'فإن غلبتَ على قراءته، فلا تُغلب على سماعه.',
-                    ),
-                    const SizedBox(height: 70),
-                    CustomDesignBuuton(
-                      titleItem: "تلاوة",
-                      onTap: () {
-                        Navigator.of(context).pushNamed(AppRoutes.readQuran);
-                      },
-                    ),
-                    CustomDesignBuuton(
-                      titleItem: "سماع",
-                      onTap: () {
-                        Navigator.of(context).pushNamed(AppRoutes.listOfQurra);
-                      },
-                    ),
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // الكارت
+                      const StylishCard(
+                        title:
+                            'عن أبي أُمَامَةَ البَاهِلِي رضي الله عنه قال: سمعتُ رسولَ اللهِ صلَّى اللهُ عليهِ وسلَّمَ يقول:',
+                        body:
+                            '"اقْرَؤُوا القُرآنَ، فإنَّهُ يأتي يومَ القيامةِ شفيعًا لأصحابِه"... رواه مسلم.',
+                        footer: 'فإن غلبتَ على قراءته، فلا تُغلب على سماعه.',
+                      ),
+                      const SizedBox(height: 24),
+
+                      // زر "تلاوة"
+                      CustomDesignBuuton(
+                        titleItem: "تلاوة",
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRoutes.readQuran);
+                        },
+                        icon: Icons.menu_book_rounded,
+                      ),
+                      const SizedBox(height: 12),
+
+                      // زر "سماع"
+                      CustomDesignBuuton(
+                        titleItem: "سماع",
+                        onTap: () {
+                          Navigator.of(
+                            context,
+                          ).pushNamed(AppRoutes.listOfQurra);
+                        },
+                        icon: Icons.headphones_rounded,
+                      ),
+
+                      const SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               ),
             ],

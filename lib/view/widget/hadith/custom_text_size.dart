@@ -17,7 +17,7 @@ class CustomTextSize extends StatelessWidget {
         ),
         SizedBox(width: 150),
         Text(
-          theme.fontSize.toString(),
+          theme.fontSize.toStringAsFixed(2),
           style: TextStyle(color: theme.fontColor, fontSize: 18),
         ),
       ],

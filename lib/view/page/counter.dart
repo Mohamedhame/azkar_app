@@ -15,63 +15,73 @@ class Counter extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeController>(context);
     final model = Provider.of<CounterCtrl>(context);
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: theme.primaryColor,
       appBar: customAppBar(theme: theme, title: "السبحة"),
-      body: Column(
-        children: [
-          CusomFieldInputInCounter(model: model),
-          const Spacer(),
-          SizedBox(
-            width: double.infinity,
-            child: InkWell(
-              onTap: () {
-                model.counterFunc();
-              },
-              child: CulculateOfProgress(
-                theme: theme,
-                centerText: model.counter.toString(),
-                selector: (CounterCtrl ctrl) => ctrl.percent,
-                radius: 120,
-                fontSize: 20,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CusomFieldInputInCounter(model: model),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                height: size.height * 0.6,
+                child: InkWell(
+                  onTap: () {
+                    model.counterFunc();
+                  },
+                  child: CulculateOfProgress(
+                    theme: theme,
+                    centerText: model.counter.toString(),
+                    selector: (CounterCtrl ctrl) => ctrl.percent,
+                    radius: 120,
+                    fontSize: 20,
+                  ),
+                ),
               ),
-            ),
-          ),
-          const Spacer(),
-          CustomDesignBuuton(
-            titleItem: "إضافة ذكر",
-            onTap: () {
-              final model = Provider.of<CounterCtrl>(context, listen: false);
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    backgroundColor: theme.primaryColor,
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        CustomTextFormField(
-                          readOnly: false,
-                          controller: model.addZekr,
-                        ),
-                        const SizedBox(height: 10),
-                        CustomDesignBuuton(
-                          titleItem: "إضافة",
+              const SizedBox(height: 20),
+              CustomDesignBuuton(
+                titleItem: "إضافة ذكر",
+                onTap: () {
+                  final model = Provider.of<CounterCtrl>(
+                    context,
+                    listen: false,
+                  );
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        backgroundColor: theme.primaryColor,
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CustomTextFormField(
+                              readOnly: false,
+                              controller: model.addZekr,
+                            ),
+                            const SizedBox(height: 10),
+                            CustomDesignBuuton(
+                              titleItem: "إضافة",
 
-                          onTap: () {
-                            model.insertIntoAzkerListInShared();
-                            Navigator.of(context).pop();
-                          },
+                              onTap: () {
+                                model.insertIntoAzkerListInShared();
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   );
                 },
-              );
-            },
+              ),
+              const SizedBox(height: 30),
+            ],
           ),
-          const SizedBox(height: 30),
-        ],
+        ),
       ),
     );
   }

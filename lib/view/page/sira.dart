@@ -22,43 +22,46 @@ class Sira extends StatelessWidget {
           return Scaffold(
             backgroundColor: theme.primaryColor,
             appBar: customAppBar(theme: theme, title: "السيره النبوية"),
-            body:
-                model.isLoading
-                    ? Center(child: CircularProgressIndicator())
-                    : ListView.builder(
-                      itemCount: model.siraData.length,
-                      itemBuilder: (context, index) {
-                        return CustomDesignBuuton(
-                          titleItem: model.siraData[index]['name'],
-                          widget: CustomDownloadOrCheckIconAndPalyIcon(
-                            theme: theme,
-                            data: model.siraData,
-                            index: index,
-                            dir: "الدكتور راغب السرجاني",
-                          ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child:
+                  model.isLoading
+                      ? Center(child: CircularProgressIndicator())
+                      : ListView.builder(
+                        itemCount: model.siraData.length,
+                        itemBuilder: (context, index) {
+                          return CustomDesignBuuton(
+                            titleItem: model.siraData[index]['name'],
+                            widget: CustomDownloadOrCheckIconAndPalyIcon(
+                              theme: theme,
+                              data: model.siraData,
+                              index: index,
+                              dir: "الدكتور راغب السرجاني",
+                            ),
 
-                          onTap: () {
-                            soundPlay.playAudio(
-                              model.siraData,
-                              index,
-                              shihkName: "الدكتور راغب السرجاني",
-                            );
-                            soundPlay.handlePlayPause();
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder:
-                                    (context) => SoundPlay(
-                                      sikhName: "الدكتور راغب السرجاني",
-                                      isSerah: true,
-                                      data: model.siraData,
-                                      index: index,
-                                    ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    ),
+                            onTap: () {
+                              soundPlay.playAudio(
+                                model.siraData,
+                                index,
+                                shikhName: "الدكتور راغب السرجاني",
+                              );
+                              soundPlay.handlePlayPause();
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) => SoundPlay(
+                                        sikhName: "الدكتور راغب السرجاني",
+                                        isSerah: true,
+                                        data: model.siraData,
+                                        index: index,
+                                      ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+            ),
           );
         },
       ),

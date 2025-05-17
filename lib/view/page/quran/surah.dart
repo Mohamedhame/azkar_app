@@ -16,46 +16,49 @@ class Surah extends StatelessWidget {
     final theme = Provider.of<ThemeController>(context);
     final model = Provider.of<SurahCtrl>(context);
     final soundPlay = Provider.of<SoundPlayCtrl>(context);
+
     return Scaffold(
       backgroundColor: theme.primaryColor,
       appBar: customAppBar(theme: theme, title: model.shikhName),
-      body:
-          model.isLoading
-              ? Center(child: CircularProgressIndicator())
-              : ListView.builder(
-                itemCount: model.surahs.length,
-                itemBuilder: (context, index) {
-                  return CustomDesignBuuton(
-                    titleItem: model.surahs[index]['name'],
-                    widget: CustomDownloadOrCheckIconAndPalyIcon(
-                      theme: theme,
-                      data: model.surahs,
-                      index: index,
-                      dir: model.shikhName,
-                    ),
-
-                    onTap: () async {
-                      soundPlay.playAudio(
-                        model.surahs,
-                        index,
-                        shihkName: model.shikhName,
-                      );
-                      soundPlay.handlePlayPause();
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder:
-                              (context) => SoundPlay(
-                                sikhName: model.shikhName,
-                                isSerah: false,
-                                data: model.surahs,
-                                index: index,
-                              ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child:
+            model.isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                  itemCount: model.surahs.length,
+                  itemBuilder: (context, index) {
+                    return CustomDesignBuuton(
+                      titleItem: model.surahs[index]['name'] ?? '',
+                      widget: CustomDownloadOrCheckIconAndPalyIcon(
+                        theme: theme,
+                        data: model.surahs,
+                        index: index,
+                        dir: model.shikhName,
+                      ),
+                      onTap: () async {
+                        soundPlay.playAudio(
+                          model.surahs,
+                          index,
+                          shikhName: model.shikhName,
+                        );
+                        soundPlay.handlePlayPause();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => SoundPlay(
+                                  sikhName: model.shikhName,
+                                  isSerah: false,
+                                  data: model.surahs,
+                                  index: index,
+                                ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+      ),
     );
   }
 }

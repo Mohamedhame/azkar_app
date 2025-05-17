@@ -12,6 +12,7 @@ class CustomTextFormField extends StatelessWidget {
     this.readOnly = false,
     this.controller,
     this.isNumber,
+    this.validator,
   });
   final String? label;
   final void Function(String)? onChanged;
@@ -19,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final bool? isNumber;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        validator: validator,
         style: GoogleFonts.amiri(color: theme.fontColor),
         keyboardType:
             isNumber != null ? TextInputType.numberWithOptions() : null,

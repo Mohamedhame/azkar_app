@@ -49,10 +49,13 @@ class ShowHadith extends StatelessWidget {
                     children: [
                       // title of
                       if (!model.isNaway)
-                        CustomDesignBuuton(
-                          titleItem: model.hadithBooks[index]['title'],
-                          backgroundColor: theme.fontColor,
-                          foregroundColor: theme.primaryColor,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CustomDesignBuuton(
+                            titleItem: model.hadithBooks[index]['title'],
+                            backgroundColor: theme.fontColor,
+                            foregroundColor: theme.primaryColor,
+                          ),
                         ),
                       CusomListViewOfHadithData(model: model, theme: theme),
                       if (!model.isNaway)

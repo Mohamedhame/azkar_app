@@ -2,17 +2,23 @@ import 'package:azkar_app/service/shared.dart';
 import 'package:flutter/material.dart';
 
 class ThemeController extends ChangeNotifier {
-  ThemeController() {
+ThemeController() {
     _loadTheme();
   }
+
+  // الألوان
   Color _primaryColor = const Color(0xff202020);
   Color _fontColor = const Color(0xfffaf7f3);
+  Color _secondaryColor = const Color(0xff2e2e2e); // لون ثانوي داكن
   bool _isLight = false;
 
+  // Getters
   Color get primaryColor => _primaryColor;
   Color get fontColor => _fontColor;
+  Color get secondaryColor => _secondaryColor;
   bool get isLight => _isLight;
 
+  // Setter
   set isLight(bool l) {
     _isLight = l;
     notifyListeners();
@@ -32,11 +38,15 @@ class ThemeController extends ChangeNotifier {
 
   void _applyTheme(bool theme) {
     if (theme) {
+      // Light Theme
       _primaryColor = const Color(0xfffaf7f3);
       _fontColor = const Color(0xff202020);
+      _secondaryColor = const Color(0xffe0ddd8); // رمادي فاتح ناعم
     } else {
+      // Dark Theme
       _primaryColor = const Color(0xff202020);
       _fontColor = const Color(0xfffaf7f3);
+      _secondaryColor = const Color(0xff2e2e2e); // رمادي غامق مريح للعين
     }
     isLight = theme;
   }
